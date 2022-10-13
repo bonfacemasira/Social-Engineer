@@ -17,7 +17,7 @@ skip_before_action :authenticate, only: [:show, :index]
         user = User.find_by(id: session[:user_id])
         project = user.projects.create!(project_params)
         render json: project, status: :created
-    rescue ActiveRecord::RecordInvalid => RecordInvalid
+    rescue ActiveRecord::RecordInvalid => invalid
         render json: {errors: invalid.record.errors}
     end
 
