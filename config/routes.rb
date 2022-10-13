@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   delete 'logout', to: 'session#destroy'
   post '/login', to: 'session#create'
   get '/me', to:'session#show'
+
+  resources :projects, only: [:index, :show, :create, :update, :destroy]
   
 
   # Routing logic: fallback requests for React Router.
