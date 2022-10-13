@@ -1,17 +1,16 @@
-
-import Nav from "./Navbar"
+import React from "react"
+import web from "../components/banner.png"
+import Common from "./More"
 
 const Home = () => {
-    return (
-      <div>
-        <Nav/>
-         <div className="image">
-            
+  return (
+    <>
+      <Common name='Find A Job That
+Matches Your Passion with  ' imgsrc={web} visit='/Login' btnname='Get Started ' />
+    </>
+  )
+}
 
-         </div>
 
-      </div>
-    );
-  };
   
-  export default Home;
+export default Home

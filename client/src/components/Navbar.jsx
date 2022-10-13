@@ -17,26 +17,18 @@ const Navbar = () => {
                 </button>
                 <div className='collapse navbar-collapse' id='navbarSupportedContent'>
                   <ul className='navbar-nav mx-auto mb-2 mb-lg-0'>
+                    
                     <li className='nav-item'>
-                      <NavLink className='nav-link active' exact activeClassName='menu_active' aria-current='page' to='/'>
-                        Home
+                      <NavLink className='nav-link' activeClassName='menu_active' to='/signup'>
+                        Sign Up
                       </NavLink>
                     </li>
                     <li className='nav-item'>
-                      <NavLink className='nav-link' activeClassName='menu_active' to='/services'>
-                        Services
+                      <NavLink className='nav-link' activeClassName='menu_active' to='/login'>
+                        Log In
                       </NavLink>
                     </li>
-                    <li className='nav-item'>
-                      <NavLink className='nav-link' activeClassName='menu_active' to='/about'>
-                        About
-                      </NavLink>
-                    </li>
-                    <li className='nav-item'>
-                      <NavLink className='nav-link' activeClassName='menu_active' to='/contact'>
-                        Contact
-                      </NavLink>
-                    </li>
+                    
                   </ul>
                 </div>
               </div>
