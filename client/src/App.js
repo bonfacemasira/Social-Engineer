@@ -1,22 +1,22 @@
-// import React from "react"
-// import Home from "./Home"
-// import About from "./About"
-// import Services from "./Services"
-// import Contact from "./Contact"
+import React from "react"
+import Homepage from "./components/Homepage.jsx"
+import { Signup } from "./components/Signup.jsx"
+import { Login } from "./components/Login.jsx"
 import Navbar from "./components/Navbar"
-// import { Switch, Route, Redirect } from "react-router-dom"
+import { Switch, Route, Redirect } from "react-router-dom"
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      {/* <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/about' component={About} />
-        <Route exact path='/services' component={Services} />
-        <Route exact path='/contact' component={Contact} />
+      <Navbar/>
+     
+      <Switch>
+        <Route exact path='/' component={Homepage} />
+        <Route exact path='/signup' component={Signup}/>
+        <Route exact path='/login' component={Login}/>
+       
         <Redirect to='/'></Redirect>
-      </Switch> */}
+      </Switch>
     </>
   )
 }
