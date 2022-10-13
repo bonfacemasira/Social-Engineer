@@ -1,68 +1,26 @@
-body {
-  margin: 0;
-}
-
-main {
-  margin: 16px;
-}
-
-.Buttons{
-  display: flex;
-
-}
-
-
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-  background: rgba(191, 191, 191, 0.331);
-  color: white;
-  font-family: Helvetica;
-  font-weight: 300;
-}
-
-.navbar__title {
-  color: rgba(4, 188, 246, 1);
-  margin-right: auto;
-  font-size: 150%;
-  padding: 12px 16px;
-  
-}
-
-.navbar__item {
-
-  color:rgba(4, 188, 246, 1) ;
-  
-  background:none; 
-  border:none; 
-  
-  font-size: large;
-  left: 20%;
- 
-}
-
-.navbar__item:hover{
-  background-color: rgb(224, 221, 221);
-  
-  
-}
-
-.button2{
-background-color: rgba(4, 188, 246, 1);
-  border: none;
-border-radius: 10px;
-  padding: 15px 32px;
+.App {
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
 }
 
-.image{
-  background-image: url(../src/components/banner.png); 
-  width:100%;
-  height:100%; 
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
+
+
+
+.App-header {
+  background-color: #04BCF6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
