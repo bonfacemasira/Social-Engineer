@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    def create
+    
         def show
             user = User.find_by(id: session[:user_id])
             if user
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
               render json: { error: "Not authorized" }, status: :unauthorized
             end
         end 
-        def create
+        
             def create
                 user = User.create(user_params)
                 if user.valid?
@@ -22,8 +22,6 @@ class UsersController < ApplicationController
               private
         
               def user_params
-                params.permit(:email, :password, :password_confirmation)
+                params.permit( :full_name,:email,:licence_number,:contact,:experience, :password,  :password_confirmation)
               end
-        end
-    end
 end
