@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_error
+wrap_parameters format: []
+before_action :authenticate
+skip_before_action :authenticate, only: [:show, :index]
 
     def index
         render json: Project.all, status: :ok
@@ -11,7 +14,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_error
     end
 
     def create
-        user = User.find_by!(id: session[:user_id])
+        user = User.find_by(id: session[:user_id])
         project = user.projects.create!(project_params)
         render json: project, status: :created
     rescue ActiveRecord::RecordInvalid => RecordInvalid
@@ -42,5 +45,9 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_error
 
     def render_not_found_error
         render json: {error: "Project Not Found"}, status: :not_found
+    end
+
+    def authenticate
+        render json: {errors: ["You are not logged in"]}, status: 401 unless session.include? :user_id
     end
 end
