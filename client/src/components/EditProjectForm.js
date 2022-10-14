@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-function NewProjectForm({handleNewProject}){
+function EditProjectForm({handleEdit, e}){
 
-    const [formData, setFormData] = useState({})
+    const [formData, setFormData] = useState({
+        "title": e.target.title,
+        "image": e.target.image,
+        "description": e.target.description,
+        "location": e.target.location,
+        "status": e.target.status
+    })
 
-    function handleSubmit(e){
-        e.preventDefault()
-
-        fetch('/projects', {
-            method:"POST",
-            headers: {
-                'contentType': 'application/json'
-            },
+    function handleSubmit(){
+        fetch(`projects/${id}`, {
+            method: "PATCH",
+            headers: {"contentType": "application/json"},
             body: JSON.stringify(formData)
         })
         .then(res => res.json())
-        .then(data => handleNewProject(data))
+        .then(data => handleEdit(data))
     }
 
     function handleChange(e){
@@ -27,6 +29,7 @@ function NewProjectForm({handleNewProject}){
             [name]:value
         })
     }
+
     return(
         <form onSubmit={handleSubmit}>
             <div class="mb-3">
@@ -53,9 +56,9 @@ function NewProjectForm({handleNewProject}){
                 </select>
 
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Update</button>
         </form>
     )
 }
 
-export default NewProjectForm
+export default EditProjectForm

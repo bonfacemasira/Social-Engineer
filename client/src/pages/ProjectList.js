@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import ProjectItem from '../components/ProjectItem';
+import NewProjectForm from '../components/NewProjectForm';
+import EditProjectForm from '../components/EditProjectForm';
 
 function ProjectList({id}){
     const [projects, setProjects] = useState([])
@@ -33,7 +35,8 @@ function ProjectList({id}){
     }
 
     function handleEditClick(e){
-        return <EditProjectForm handleEdit={data => {
+        id = e.target.id
+        return <EditProjectForm e={e} handleEdit={data => {
             setProjects(
                 projects.map(project => {
                     if (project.id == id){
@@ -44,12 +47,6 @@ function ProjectList({id}){
                 })
             )
         }}/>
-        id = e.target.id
-        fetch(`projects/${id}`, {
-            method: "PATCH",
-            headers: {"contentType": "application/json"},
-            body: JSON.stringify(formData)
-        })
     }
 
     return(
@@ -69,7 +66,7 @@ function ProjectList({id}){
                 </thead>
                 <tbody>
                     {projects.map(project => (
-                        <ProjectItem key={project.id} project={project} handleDeleteClick={handleDeleteClick} handleEditClick={handleEditClick}/>
+                        <ProjectItem key={project.id} project={project} handleDeleteClick={() => handleDeleteClick} handleEditClick={() => handleEditClick}/>
                     ))}
                 </tbody>
             </table>
