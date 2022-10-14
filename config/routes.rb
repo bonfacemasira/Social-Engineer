@@ -5,7 +5,6 @@ Rails.application.routes.draw do
     get '/me', to: 'users#show'
     delete 'logout', to: 'session#destroy'
     post '/login', to: 'session#create'
-    get '/me', to:'session#show'
   
 
     resources :projects, only: [:index, :show, :create, :update, :destroy]

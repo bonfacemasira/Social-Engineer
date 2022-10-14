@@ -5,14 +5,11 @@ import EditProjectForm from '../components/EditProjectForm';
 
 function ProjectList({user}){
     
-    console.log(user)
-    const [projects, setProjects] = useState(user.projects)
+    const [projects, setProjects] = useState([])
 
-    // useEffect(() => {
-    //     fetch(`/users/${id}`)
-    //     .then(res => res.json())
-    //     .then(user => setProjects(user.projects))
-    // }, [])
+    useEffect(() => {
+        setProjects(user.projects)
+    }, [])
     
 
     function handleNewProjectClick(){
@@ -26,7 +23,7 @@ function ProjectList({user}){
 
     function handleDeleteClick(e){
         let id = e.target.id
-        fetch(`projects/${id}`, {
+        fetch(`/api/projects/${id}`, {
             method: "DELETE",
             headers: {"contentType": "application/json"}
         })

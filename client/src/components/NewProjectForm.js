@@ -7,7 +7,7 @@ function NewProjectForm({handleNewProject}){
     function handleSubmit(e){
         e.preventDefault()
 
-        fetch('/projects', {
+        fetch('/api/projects', {
             method:"POST",
             headers: {
                 'contentType': 'application/json'

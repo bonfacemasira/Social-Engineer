@@ -11,7 +11,7 @@ function EditProjectForm({handleEdit, e, id}){
     })
 
     function handleSubmit(){
-        fetch(`projects/${id}`, {
+        fetch(`/api/projects/${id}`, {
             method: "PATCH",
             headers: {"contentType": "application/json"},
             body: JSON.stringify(formData)

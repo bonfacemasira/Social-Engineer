@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function SignUpForm({onLogin}) {
   const [full_name, setFullname] = useState("");
@@ -10,6 +11,8 @@ function SignUpForm({onLogin}) {
   const [experience, setExperience] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -33,6 +36,7 @@ function SignUpForm({onLogin}) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user)=> onLogin(user));
+        navigate("/")
       } else {
         r.json().then((err)=> onLogin(err.errors));
       }
