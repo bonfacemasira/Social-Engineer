@@ -1,19 +1,45 @@
 import React, { useState } from "react";
 
-function SignUpForm() {
+function SignUpForm({onLogin}) {
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
   const [licenseNumber, setLicenseNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [experience, setExperience] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(password)
+    setErrors([]);
+    setIsLoading(true);
+    fetch('/signup', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullname,
+        email,
+        contact,
+        licenseNumber,
+        password,
+        passwordConfirmation,
+        experience,
+      }),
+    }).then((r) => {
+      setIsLoading(false);
+      if (r.ok) {
+        r.json().then((user)=> onLogin(user));
+      } else {
+        r.json().then((err)=> onLogin(err.errors));
+      }
+    });
   }
+  console.log(errors)
+  console.log(isLoading)
 
   return (
     <div className="Auth-form-container">
@@ -28,6 +54,7 @@ function SignUpForm() {
             <input
               type="text"
               className="form-control mt-1"
+              id="fullname"
               placeholder="Jane Doe"
               value={fullname}
               onChange={(e) => setFullname(e.target.value)}
@@ -37,6 +64,7 @@ function SignUpForm() {
             <label>Email</label>
             <input
               type="email"
+              id='email'
               className="form-control mt-1"
               placeholder="example@gmail.com"
               value={email}
@@ -47,6 +75,7 @@ function SignUpForm() {
             <label>Contact</label>
             <input
               type="number"
+              id="contact"
               className="form-control mt-1"
               placeholder="2547xxxxxxxxx"
               value={contact}
@@ -57,6 +86,7 @@ function SignUpForm() {
             <label>License Number</label>
             <input
               type="number"
+              id="licenseNumber"
               className="form-control mt-1"
               placeholder="License Number"
               value={licenseNumber}
@@ -70,7 +100,19 @@ function SignUpForm() {
               className="form-control mt-1"
               placeholder="Password"
               value={password}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+              autoComplete="current-password"
+            />
+          </div>
+          <div className="form-group mt-3">
+            <label>Password Confirmation</label>
+            <input
+              type="password"
+              className="form-control mt-1"
+              placeholder="Password"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
+              autoComplete="current-password"
             />
           </div>
           <div className="form-group mt-3">

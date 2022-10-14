@@ -6,6 +6,9 @@ function Loginform( {onLogin} ) {
   const [ errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+
+  console.log(errors)
+  
   function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);

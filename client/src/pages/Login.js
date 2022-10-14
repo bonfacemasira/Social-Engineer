@@ -16,7 +16,7 @@ function Login() {
             };
         })
     }, []);
-
+    console.log(user)
     // if (!user) return <Login onLogin={} />
 
     return (
