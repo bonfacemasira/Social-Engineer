@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
 import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
-import { Route, Routes } from "react-router";
+import { Route, Routes } from "react-router-dom";
 import Loginform from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 
@@ -23,12 +23,14 @@ function App() {
 
   return (
     <div>
-      <NavBar />
-      <Routes>
-        <Route exact path='/login' element={<Loginform />} />
-        <Route exact path='/register' element={<SignUpForm />} />
-        <Route exact path='/' element={<Loginform />} />
-      </Routes>
+      <NavBar user={user} onLogin={setUser} />
+      <main>
+        <Routes>
+          <Route exact path="/login" element={<Loginform />} />
+          <Route exact path="/register" element={<SignUpForm />} />
+          <Route exact path="/" element={<Loginform />} />
+        </Routes>
+      </main>
     </div>
   );
 }

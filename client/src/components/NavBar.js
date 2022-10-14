@@ -1,11 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({ user, setUser }) {
+    function handleLogoutClick() {
+        fetch("/logout", { method: 'DELETE' }).then((r) => {
+            if (r.ok) {
+                setUser(null);
+            }
+        });
+    }
+
     return (
         <div>
-            <NavLink to={"login"} exact >Login</NavLink>
-            <NavLink to={"register"} exact >Sign up</NavLink>
+            <NavLink to={"/login"} >Login</NavLink>
+            <NavLink to={"/register"} >Sign up</NavLink>
         </div>
     )
 }

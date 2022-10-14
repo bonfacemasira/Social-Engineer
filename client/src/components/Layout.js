@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
   return (
     <div>
-      <nav>
+      <nav style={{display: "flex"}}>
         <h1>Social-Engineer</h1>
         <button>
           <Link to="/login">Login</Link>
