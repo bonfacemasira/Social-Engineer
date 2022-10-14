@@ -1,4 +1,4 @@
-class ProjectsController < ApplicationController
+class Api::ProjectsController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_error
 wrap_parameters format: []
 before_action :authenticate

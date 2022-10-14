@@ -12,6 +12,7 @@ function NavBar({ user, setUser }) {
 
     return (
         <div>
+            <h1>Social</h1>
             <NavLink to={"/login"} >Login</NavLink>
             <NavLink to={"/register"} >Sign up</NavLink>
         </div>

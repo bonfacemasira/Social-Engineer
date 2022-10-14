@@ -12,7 +12,7 @@ function Loginform( {onLogin} ) {
   function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
-    fetch('/login', {
+    fetch('/api/login', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

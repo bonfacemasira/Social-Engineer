@@ -32,23 +32,23 @@ function App() {
 
   useEffect(() => {
     //auto-login
-    fetch("/me").then((r) => {
+    fetch("/api/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
     });
   }, []);
 
-  if (!user) return <Login onLogin={setUser} />;
+  //if (!user) return <Login onLogin={setUser} />;
 
   return (
     <div>
       <NavBar user={user} onLogin={setUser} />
       <main>
         <Routes>
-          <Route exact path="/login" element={<Loginform />} />
-          <Route exact path="/register" element={<SignUpForm />} />
-          <Route exact path="/" element={<Loginform />} />
+          <Route exact path="/login" element={<Loginform onLogin={setUser}/>} />
+          <Route exact path="/register" element={<SignUpForm onLogin={setUser}/>} />
+          <Route exact path="/" element={<Loginform onLogin={setUser}/>} />
         </Routes>
       </main>
 {/* //>>>>>>> c86ee006186ff0df1b9c64b5da9ad0f17b6fc5c8 */}

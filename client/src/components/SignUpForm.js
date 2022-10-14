@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 function SignUpForm({onLogin}) {
-  const [fullname, setFullname] = useState("");
+  const [full_name, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
-  const [licenseNumber, setLicenseNumber] = useState("");
+  const [license_number, setLicenseNumber] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [password_confirmation, setPasswordConfirmation] = useState("");
   const [experience, setExperience] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -15,18 +15,18 @@ function SignUpForm({onLogin}) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch('/signup', {
+    fetch('/api/signup', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        fullname,
+        full_name,
         email,
         contact,
-        licenseNumber,
+        license_number,
         password,
-        passwordConfirmation,
+        password_confirmation,
         experience,
       }),
     }).then((r) => {
@@ -38,8 +38,6 @@ function SignUpForm({onLogin}) {
       }
     });
   }
-  console.log(errors)
-  console.log(isLoading)
 
   return (
     <div className="Auth-form-container">
@@ -54,9 +52,9 @@ function SignUpForm({onLogin}) {
             <input
               type="text"
               className="form-control mt-1"
-              id="fullname"
+              id="full_name"
               placeholder="Jane Doe"
-              value={fullname}
+              value={full_name}
               onChange={(e) => setFullname(e.target.value)}
             />
           </div>
@@ -85,11 +83,11 @@ function SignUpForm({onLogin}) {
           <div className="form-group mt-3">
             <label>License Number</label>
             <input
-              type="number"
+              type="text"
               id="licenseNumber"
               className="form-control mt-1"
               placeholder="License Number"
-              value={licenseNumber}
+              value={license_number}
               onChange={(e) => setLicenseNumber(e.target.value)}
             />
           </div>
@@ -100,8 +98,7 @@ function SignUpForm({onLogin}) {
               className="form-control mt-1"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
-              autoComplete="current-password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="form-group mt-3">
@@ -110,15 +107,14 @@ function SignUpForm({onLogin}) {
               type="password"
               className="form-control mt-1"
               placeholder="Confirm Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              autoComplete="current-password"
+              value={password_confirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
           </div>
           <div className="form-group mt-3">
             <label>Experience</label>
             <input
-              type="text"
+              type="number"
               className="form-control mt-1"
               placeholder="Experience"
               value={experience}
