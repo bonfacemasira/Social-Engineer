@@ -2,7 +2,14 @@
   background-color: white;
 }
 
-.Auth-form-container {
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #04BCF6;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

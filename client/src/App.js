@@ -1,3 +1,4 @@
+
 // <<<<<<< HEAD
 // import logo from './logo.svg';
 // import './App.css';
@@ -26,6 +27,7 @@ import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import Loginform from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
+import Home from "./views/Home.jsx"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -48,12 +50,47 @@ function App() {
         <Routes>
           <Route exact path="/login" element={<Loginform onLogin={setUser}/>} />
           <Route exact path="/register" element={<SignUpForm onLogin={setUser}/>} />
-          <Route exact path="/" element={<Loginform onLogin={setUser}/>} />
+          <Route exact path="/" element={user ? <Home/> : <Loginform onLogin={setUser}/>} />
         </Routes>
       </main>
 {/* //>>>>>>> c86ee006186ff0df1b9c64b5da9ad0f17b6fc5c8 */}
     </div>
   );
-}
+  }
 
-export default App;
+  export default App
+// import React from "react"
+// import Home from "./views/Home.jsx"
+// import { Signup } from "./views/Signup.jsx"
+// import { Login } from "./views/Login.jsx"
+// import { Projects } from "./views/Projects.jsx"
+// import Navbar from "./components/Navbar"
+// import { Switch, Route, Redirect } from "react-router-dom"
+
+// const App = () => {
+//   useEffect(() => {
+//     //auto-login
+//     fetch("/api/me").then((r) => {
+//       if (r.ok) {
+//         r.json().then((user) => setUser(user));
+//       }
+//     });
+//   }, []);
+
+//   return (
+//     <>
+//       {/* <Navbar/> */}
+//       <NavBar user={user} onLogin={setUser} />
+//       <Switch>
+//         <Route exact path='/' component={Home} />
+//         <Route exact path='/signup' component={Signup}/>
+//         <Route exact path='/login' component={Login}/>
+//         <Route exact path='/projects' component={Projects}/>
+       
+//         <Redirect to='/'></Redirect>
+//       </Switch>
+//     </>
+//   )
+// >>>>>>> a2d3ab11047e69a65479b3790a0cf66511bf23ee
+
+
