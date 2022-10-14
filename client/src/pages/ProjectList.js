@@ -3,14 +3,17 @@ import ProjectItem from '../components/ProjectItem';
 import NewProjectForm from '../components/NewProjectForm';
 import EditProjectForm from '../components/EditProjectForm';
 
-function ProjectList({id}){
-    const [projects, setProjects] = useState([])
+function ProjectList({user}){
+    
+    console.log(user)
+    const [projects, setProjects] = useState(user.projects)
 
-    useEffect(() => {
-        fetch(`/users/${id}`)
-        .then(res => res.json())
-        .then(user => setProjects(user.projects))
-    }, [])
+    // useEffect(() => {
+    //     fetch(`/users/${id}`)
+    //     .then(res => res.json())
+    //     .then(user => setProjects(user.projects))
+    // }, [])
+    
 
     function handleNewProjectClick(){
         return <NewProjectForm handleNewProject={data => {
@@ -22,24 +25,24 @@ function ProjectList({id}){
     }
 
     function handleDeleteClick(e){
-        id = e.target.id
+        let id = e.target.id
         fetch(`projects/${id}`, {
             method: "DELETE",
             headers: {"contentType": "application/json"}
         })
         .then(setProjects(
             projects.filter(project => {
-                return project.id != id
+                return project.id !== id
             })
         ))
     }
 
     function handleEditClick(e){
-        id = e.target.id
-        return <EditProjectForm e={e} handleEdit={data => {
+        let id = e.target.id
+        return <EditProjectForm e={e} id={id} handleEdit={data => {
             setProjects(
                 projects.map(project => {
-                    if (project.id == id){
+                    if (project.id === id){
                         return project=data
                     }else {
                         return project

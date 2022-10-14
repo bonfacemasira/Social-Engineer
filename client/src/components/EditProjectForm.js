@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function EditProjectForm({handleEdit, e}){
+function EditProjectForm({handleEdit, e, id}){
 
     const [formData, setFormData] = useState({
         "title": e.target.title,
