@@ -109,7 +109,7 @@ function SignUpForm({onLogin}) {
             <input
               type="password"
               className="form-control mt-1"
-              placeholder="Password"
+              placeholder="Confirm Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               autoComplete="current-password"
