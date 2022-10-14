@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
+  
+  wrap_parameters format: []
   def index
     user=User.all
     render json: user
