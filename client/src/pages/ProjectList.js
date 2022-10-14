@@ -11,7 +11,12 @@ function ProjectList({id}){
     }, [])
 
     function handleNewProjectClick(){
-        return <NewProjectForm/>
+        return <NewProjectForm handleNewProject={data => {
+            setProjects(
+                ...projects,
+                data
+            )
+        }}/>
     }
 
     return(
