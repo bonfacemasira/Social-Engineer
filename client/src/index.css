@@ -43,7 +43,14 @@ body {
   color: #484848;
   font-size: 24px;
 }
-/* .header-img {
-  text-align: right;
-} */
+.random{
+  background-color: #04BCF6; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
