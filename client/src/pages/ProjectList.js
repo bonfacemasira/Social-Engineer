@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ProjectItem from '../components/ProjectItem';
 
-function ProjectList({user}){
-    projects = user.projects
+function ProjectList({id}){
+    const [projects, setProjects] = useState([])
+
+    useEffect(() => {
+        fetch(`/users/${id}`)
+        .then(res => res.json())
+        .then(user => setProjects(user.projects))
+    }, [])
+
     return(
         <div>
             <h1>My Projects</h1>
+            <button>New Project</button>
             <table class="table">
                 <thead>
                     <tr>
