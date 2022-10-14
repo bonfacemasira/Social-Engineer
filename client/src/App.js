@@ -1,8 +1,8 @@
 import React from "react"
-import Homepage from "./components/Homepage.jsx"
-import { Signup } from "./components/Signup.jsx"
-import { Login } from "./components/Login.jsx"
-import { Projects } from "./components/Projects.jsx"
+import Home from "./views/Home.jsx"
+import { Signup } from "./views/Signup.jsx"
+import { Login } from "./views/Login.jsx"
+import { Projects } from "./views/Projects.jsx"
 import Navbar from "./components/Navbar"
 import { Switch, Route, Redirect } from "react-router-dom"
 
@@ -12,7 +12,7 @@ const App = () => {
       <Navbar/>
      
       <Switch>
-        <Route exact path='/' component={Homepage} />
+        <Route exact path='/' component={Home} />
         <Route exact path='/signup' component={Signup}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/projects' component={Projects}/>
