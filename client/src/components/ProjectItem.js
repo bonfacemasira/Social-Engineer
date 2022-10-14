@@ -1,11 +1,7 @@
 import React from "react";
 
-function ProjectItem({project, handleDeleteClick}){
+function ProjectItem({project, handleDeleteClick, handleEditClick}){
     const {id, title, description, location, status, image} = project
-
-    function handleEditClick(){
-        console.log("Edit clicked")
-    }
 
     return(
         <tr>

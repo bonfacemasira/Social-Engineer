@@ -32,6 +32,26 @@ function ProjectList({id}){
         ))
     }
 
+    function handleEditClick(e){
+        return <EditProjectForm handleEdit={data => {
+            setProjects(
+                projects.map(project => {
+                    if (project.id == id){
+                        return project=data
+                    }else {
+                        return project
+                    }
+                })
+            )
+        }}/>
+        id = e.target.id
+        fetch(`projects/${id}`, {
+            method: "PATCH",
+            headers: {"contentType": "application/json"},
+            body: JSON.stringify(formData)
+        })
+    }
+
     return(
         <div>
             <h1>My Projects</h1>
@@ -49,7 +69,7 @@ function ProjectList({id}){
                 </thead>
                 <tbody>
                     {projects.map(project => (
-                        <ProjectItem key={project.id} project={project} handleDeleteClick={handleDeleteClick}/>
+                        <ProjectItem key={project.id} project={project} handleDeleteClick={handleDeleteClick} handleEditClick={handleEditClick}/>
                     ))}
                 </tbody>
             </table>
