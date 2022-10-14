@@ -1,8 +1,8 @@
 import React from 'react'
 import ProjectItem from '../components/ProjectItem';
 
-function ProjectList({}){
-    projects = []
+function ProjectList({user}){
+    projects = user.projects
     return(
         <div>
             <h1>My Projects</h1>
