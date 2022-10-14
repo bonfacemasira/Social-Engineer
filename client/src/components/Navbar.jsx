@@ -28,6 +28,11 @@ const Navbar = () => {
                         Log In
                       </NavLink>
                     </li>
+                    <li className='nav-item'>
+                      <NavLink className='nav-link' activeClassName='menu_active' to='/projects'>
+                        Projects
+                      </NavLink>
+                      </li>
                     
                   </ul>
                 </div>
