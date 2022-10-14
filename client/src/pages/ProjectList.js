@@ -19,6 +19,19 @@ function ProjectList({id}){
         }}/>
     }
 
+    function handleDeleteClick(e){
+        id = e.target.id
+        fetch(`projects/${id}`, {
+            method: "DELETE",
+            headers: {"contentType": "application/json"}
+        })
+        .then(setProjects(
+            projects.filter(project => {
+                return project.id != id
+            })
+        ))
+    }
+
     return(
         <div>
             <h1>My Projects</h1>
@@ -36,7 +49,7 @@ function ProjectList({id}){
                 </thead>
                 <tbody>
                     {projects.map(project => (
-                        <ProjectItem key={project.id} project={project}/>
+                        <ProjectItem key={project.id} project={project} handleDeleteClick={handleDeleteClick}/>
                     ))}
                 </tbody>
             </table>

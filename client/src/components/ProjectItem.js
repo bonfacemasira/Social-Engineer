@@ -1,7 +1,11 @@
 import React from "react";
 
-function ProjectItem({project}){
+function ProjectItem({project, handleDeleteClick}){
     const {id, title, description, location, status, image} = project
+
+    function handleEditClick(){
+        console.log("Edit clicked")
+    }
 
     return(
         <tr>
@@ -12,8 +16,8 @@ function ProjectItem({project}){
             <td>{location}</td>
             <td>{status}</td>
             <td>
-                <button>Edit</button>
-                <button>Delete</button>
+                <button id={id} onClick={handleEditClick}>Edit</button>
+                <button id={id} onClick={handleDeleteClick}>Delete</button>
             </td>
         </tr>
     )
