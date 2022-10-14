@@ -10,10 +10,14 @@ function ProjectList({id}){
         .then(user => setProjects(user.projects))
     }, [])
 
+    function handleNewProjectClick(){
+        return <NewProjectForm/>
+    }
+
     return(
         <div>
             <h1>My Projects</h1>
-            <button>New Project</button>
+            <button onClick={handleNewProjectClick}>New Project</button>
             <table class="table">
                 <thead>
                     <tr>
