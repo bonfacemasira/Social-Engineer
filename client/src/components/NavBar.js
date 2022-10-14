@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function NavBar({user, setUser}) {
+function NavBar() {
     return (
         <div>
-            <NavLink to="/login" exact >Login</NavLink>
-            <NavLink to="/register" exact >Sign up</NavLink>
+            <NavLink to={"login"} exact >Login</NavLink>
+            <NavLink to={"register"} exact >Sign up</NavLink>
         </div>
     )
 }
