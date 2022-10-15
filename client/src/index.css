@@ -9,31 +9,39 @@ body {
   font-family: "Mulish", sans-serif;
 }
 .navbar {
-  background-color: #fff !important;
+  background-color: rgb(255, 255, 255) !important;
+  width: 1901.09px; 
+  transform: translate(-167.853px, 0px);
 }
 .navbar-brand {
   font-size: 20px !important;
-  color: #04BCF6 !important;
+  color: blue;
   font-weight: bold;
+  width: 185.924px; 
+ 
 }
 .navbar a {
   color: #04BCF6;
   font-size: 18px;
   text-transform: capitalize;
   transition: 0.5s;
+  width: 75.4128px; transform: translate(787.503px, 0px);
 }
 .navbar a:hover {
-  color: #04BCF6 !important;
+  color: #002fff !important;
+  
 }
+
 .menu_active {
   font-weight: bold;
-  border-bottom: 1px solid #04BCF6;
+  
+  width: 97.7287px;
 }
 #header h1 {
   margin: 0 0 10px 0;
   font-size: 48px;
   font-weight: bold;
-  color: black;
+  color: rgb(255, 1, 1);
   text-align: left;
 }
 #header .brand-name {
@@ -52,5 +60,57 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+.navbars{
+  height: 52.5152px; 
+  transform: translate(0px, -1.51523px);
+}
+
+.nav-item{
+  color: rgb(255, 255, 255);
+}
+
+.navbar-brand.active{
+  width: 170.735px; 
+  transform: translate(84.0267px, 0px);
+}
+
+.imagers{
+  margin-top: 4px; 
+  margin-bottom: 9px; height: 859.02px; 
+  transform: translate(42.3812px, 13.8034px); 
+  width: 885.854px;
+}
+.col-12 col-lg-5 mb-10 mb-lg-0{
+  color: aqua;
+  
+}
+
+.h1{
+  text-decoration-color: aqua;
+}
+
+a.random{
+  border-radius: 5px;
+}
+.Auth-form-container{
+
+height: 807.833px; transform: translate(706.875px, 38.2435px); width: 491.358px;
+}
+.btn btn-primary{
+  background-color: #000000
+}
+
+.carder{
+height: 144.885px;
+max-width: fit-content;
+
+}
+
+.engineer{
+  width: 1014.87px; 
+  transform: translate(-378.865px, 11.802px); 
+  height: 90.198px;
 }
 
