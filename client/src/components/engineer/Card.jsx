@@ -1,6 +1,6 @@
 function Card(props) {
   return (
-    <section>
+    <section id="sectionCard">
     <div className="carder">
     <div className="card" >
   

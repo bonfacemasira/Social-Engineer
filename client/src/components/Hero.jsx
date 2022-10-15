@@ -10,12 +10,11 @@ const Hero = () => {
               <div className="display-4 mb-5 mt-n16"></div>
             
               <h1 className="ls-tight font-bolder display-2 mb-5">
-              Find A Job That
-Matches Your Passion through Social-Engineer
+              Find an Engineer that matches your project through Social-Engineer
               </h1>
               
               <p className="lead mb-10">
-              Hand-picked opportunities to work from home, remotely, freelance, full-time, part-time, contract and internships.
+              Are you an Engineer? Sign up and let the world see your projects.
               </p>
              
               <div className="mx-n2">
