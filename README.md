@@ -3,7 +3,7 @@ Social Engineer is a web-based platform that brings Engineers and Clients closer
 
 Explore the live version hosted on heroku [here.](https://social-engineer.herokuapp.com/)
 
-<img src="https://github.com/ChadGichuki/Friends-of-Frodo-Baggins/blob/main/media/landing-page.png" height="500">
+<img src="https://github.com/bonfacemasira/Social-Engineer/blob/main/public/home.png?raw=true" height="500">
 
 ## Who Would Benefit From Using Social Engineer?
 - Registered Engineers looking to showcase their projects and get contacted by potential clients.
