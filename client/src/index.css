@@ -104,6 +104,7 @@ height: 807.833px; transform: translate(706.875px, 38.2435px); width: 491.358px;
 
 .carder{
 height: 144.885px;
+min-width: 30%;
 max-width: fit-content;
 
 }
@@ -114,3 +115,17 @@ max-width: fit-content;
   height: 90.198px;
 }
 
+#projectList{
+  text-align: center;
+}
+
+#engArray{
+  text-align: center;
+  align-content: center;
+  margin-top: 1%;
+}
+
+#sectionCard{
+  text-align: center;
+  margin-left: 40%;
+}

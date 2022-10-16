@@ -15,6 +15,7 @@ skip_before_action :authenticate, only: [:show, :index]
 
     def create
         user = User.find_by(id: session[:user_id])
+        puts project_params
         project = user.projects.create!(project_params)
         render json: project, status: :created
     rescue ActiveRecord::RecordInvalid => invalid
@@ -40,7 +41,7 @@ skip_before_action :authenticate, only: [:show, :index]
     end
 
     def project_params
-        params.permit(:id, :title, :description, :image, :status, :location)
+        params.permit(:title, :description, :image, :status, :location)
     end
 
     def render_not_found_error

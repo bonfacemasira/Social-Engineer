@@ -22,7 +22,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState, useEffect } from "react";
-import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Loginform from "./components/LoginForm";
@@ -43,6 +42,10 @@ function App() {
       }
     });
   }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('user', user)
+  }, [user])
 
   function handleLogout(){
     navigate("/")
